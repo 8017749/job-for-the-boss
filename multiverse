@@ -1,0 +1,31 @@
+# Load the multiverse package
+library(multiverse)
+
+# Define the multiverse
+mv <- multiverse()
+
+# Add a version of the analysis
+mv$add_analysis(
+  multiverse(
+    "version 1",
+    analysis = function(data) {
+      # Perform analysis version 1
+    }
+  )
+)
+
+# Add another version of the analysis
+mv$add_analysis(
+  multiverse(
+    "version 2",
+    analysis = function(data) {
+      # Perform analysis version 2
+    }
+  )
+)
+
+# Generate the multiverse
+mv_results <- generate_multiverse(mv)
+
+# Evaluate the multiverse
+evaluate_multiverse(mv_results)
